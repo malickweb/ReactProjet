@@ -53,7 +53,7 @@ class Menu extends Component {
         const sections = menus;
         const output = Object.keys(sections).map(function(section, index) {
             if (sections[section].isSousMenu === true) {
-                const foo = sections[section].sousMenus.map(function(e, i) {
+                const sousMenu = sections[section].sousMenus.map(function(e, i) {
                     return (
                         <li key={i}>
                             <a href={e.anchorUrl}>{e.titre}</a>
@@ -63,7 +63,7 @@ class Menu extends Component {
                 return (
                     <li key={index}>
                         <a href={sections[section].anchorUrl}>{sections[section].title}</a>
-                        <ul>{foo}</ul>
+                        <ul>{sousMenu}</ul>
                     </li>
                 );
             } else {
