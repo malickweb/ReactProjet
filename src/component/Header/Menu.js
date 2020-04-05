@@ -8,15 +8,13 @@ import menus from '../../json/Menu-json';
 
 class Menu extends Component {
     state = {
-        menus,
         isToggleOn: false
     };
 
     render() {
-        const sections = menus;
-        const output = Object.keys(sections).map(function(section, index) {
-            if (sections[section].isSousMenu === true) {
-                const foo = sections[section].sousMenus.map(function(e, i) {
+        const output = Object.keys(menus).map(function(section, index) {
+            if (menus[section].isSousMenu === true) {
+                const foo = menus[section].sousMenus.map(function(e, i) {
                     return (
                         <li key={i}>
                             <a href={e.anchorUrl}>{e.titre}</a>
@@ -25,14 +23,14 @@ class Menu extends Component {
                 });
                 return (
                     <li key={index}>
-                        <a href={sections[section].anchorUrl}>{sections[section].title}</a>
+                        <a href={menus[section].anchorUrl}>{menus[section].title}</a>
                         <ul>{foo}</ul>
                     </li>
                 );
             } else {
                 return (
                     <li key={index}>
-                        <a href={sections[section].anchorUrl}>{sections[section].title}</a>
+                        <a href={menus[section].anchorUrl}>{menus[section].title}</a>
                     </li>
                 );
             }

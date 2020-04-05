@@ -7,8 +7,8 @@ class Formulaire extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
-            valuee: '',
+            name: '',
+            firstName: '',
             valuetext: 'Please write an essay about your favorite DOM element.'
         };
         this.handleChange = this.handleChange.bind(this);
@@ -26,9 +26,11 @@ class Formulaire extends Component {
     }
 
     handleSubmit(event) {
-        console.log('Ton nom : ' + this.state.value);
-        console.log('Ton nom : ' + this.state.valuee);
+        console.log('Nom : ' + this.state.name);
+        console.log('Prenom : ' + this.state.firstName);
         console.log('Ton text : ' + this.state.valuetext);
+        console.log('event ===> ', event.type);
+        console.log('event ===> ', event.isTrusted);
         event.preventDefault();
     }
 
@@ -44,11 +46,11 @@ class Formulaire extends Component {
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
                                     <label>Name:</label>
-                                    <input type="text" name="value" className="form-control" value={this.state.value} onChange={this.handleChange} />
+                                    <input type="text" name="name" className="form-control" value={this.state.name} onChange={this.handleChange} />
                                 </div>
                                 <div className="form-group">
-                                    <label>Names:</label>
-                                    <input type="text" name="valuee" className="form-control" value={this.state.valuee} onChange={this.handleChange} />
+                                    <label>First names:</label>
+                                    <input type="text" name="firstName" className="form-control" value={this.state.firstName} onChange={this.handleChange} />
                                 </div>
                                 <div className="form-group">
                                     <label>Texte:</label>
