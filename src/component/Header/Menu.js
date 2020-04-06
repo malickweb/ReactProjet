@@ -1,4 +1,5 @@
-import React, { Component, useState } from 'react';
+// import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 //Styles
 import './Menu.css';
@@ -6,39 +7,39 @@ import './Menu.css';
 //Json Menu
 import menus from '../../json/Menu-json';
 
-class SubMenu extends Component {
-    render() {
-        return Object.keys(menus).map((section, index) => {
-            if (menus[section].isSousMenu === true) {
-                const sousMenu = menus[section].sousMenus.map((e, i) => {
-                    return (
-                        <li key={i}>
-                            <a href={e.anchorUrl} onClick={this.props.handleClick}>
-                                {e.titre}
-                            </a>
-                        </li>
-                    );
-                });
-                return (
-                    <li key={index}>
-                        <a href={menus[section].anchorUrl} onClick={this.props.handleClick}>
-                            {menus[section].title}
-                        </a>
-                        <ul>{sousMenu}</ul>
-                    </li>
-                );
-            } else {
-                return (
-                    <li key={index}>
-                        <a href={menus[section].anchorUrl} onClick={this.props.handleClick}>
-                            {menus[section].title}
-                        </a>
-                    </li>
-                );
-            }
-        });
-    }
-}
+// class SubMenu extends Component {
+//     render() {
+//         return Object.keys(menus).map((section, index) => {
+//             if (menus[section].isSousMenu === true) {
+//                 const sousMenu = menus[section].sousMenus.map((e, i) => {
+//                     return (
+//                         <li key={i}>
+//                             <a href={e.anchorUrl} onClick={this.props.handleClick}>
+//                                 {e.titre}
+//                             </a>
+//                         </li>
+//                     );
+//                 });
+//                 return (
+//                     <li key={index}>
+//                         <a href={menus[section].anchorUrl} onClick={this.props.handleClick}>
+//                             {menus[section].title}
+//                         </a>
+//                         <ul>{sousMenu}</ul>
+//                     </li>
+//                 );
+//             } else {
+//                 return (
+//                     <li key={index}>
+//                         <a href={menus[section].anchorUrl} onClick={this.props.handleClick}>
+//                             {menus[section].title}
+//                         </a>
+//                     </li>
+//                 );
+//             }
+//         });
+//     }
+// }
 
 // class Menu extends Component {
 //     state = {
@@ -75,6 +76,38 @@ class SubMenu extends Component {
 //         );
 //     }
 // }
+
+const SubMenu = () => {
+    return Object.keys(menus).map((section, index) => {
+        if (menus[section].isSousMenu === true) {
+            const sousMenu = menus[section].sousMenus.map((e, i) => {
+                return (
+                    <li key={i}>
+                        <a href={e.anchorUrl} onClick={this.props.handleClick}>
+                            {e.titre}
+                        </a>
+                    </li>
+                );
+            });
+            return (
+                <li key={index}>
+                    <a href={menus[section].anchorUrl} onClick={this.props.handleClick}>
+                        {menus[section].title}
+                    </a>
+                    <ul>{sousMenu}</ul>
+                </li>
+            );
+        } else {
+            return (
+                <li key={index}>
+                    <a href={menus[section].anchorUrl} onClick={this.props.handleClick}>
+                        {menus[section].title}
+                    </a>
+                </li>
+            );
+        }
+    });
+};
 
 const Menu = () => {
     const [isToggleOn, setIsToggleOn] = useState(false);
