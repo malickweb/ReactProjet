@@ -15,8 +15,9 @@ import Show from './component/Section/Show/Show';
 import registerServiceWorker from './registerServiceWorker';
 
 //Style
-import './assets/bootstrap/bootstrap.css';
-//import './index.scss';
+// import './assets/bootstrap/bootstrap.css';
+// import './index.scss';
+import './index.css';
 
 const Root = () => (
     <Switch>
@@ -33,6 +34,6 @@ ReactDOM.render(
     <Router>
         <Root />
     </Router>,
-    document.getElementById('root')
+    document.querySelector('body')
 );
 registerServiceWorker();
