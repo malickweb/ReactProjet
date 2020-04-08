@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 //Menu
 import Menu from '../../Header/Menu';
 
+// Styles
+import './Formulaire.css';
+
 const Formulaire = () => {
     const [inputValues, setInputValues] = useState({
         name: '',
@@ -28,27 +31,23 @@ const Formulaire = () => {
         <div>
             <Menu />
 
-            <section>
-                <div className="container">
-                    <div className="row">
-                        <h1>Formulaire</h1>
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label>Name:</label>
-                                <input type="text" name="name" className="form-control" value={inputValues.name} onChange={handleOnChange} />
-                            </div>
-                            <div className="form-group">
-                                <label>First names:</label>
-                                <input type="text" name="firstName" className="form-control" value={inputValues.firstName} onChange={handleOnChange} />
-                            </div>
-                            <div className="form-group">
-                                <label>Texte:</label>
-                                <textarea name="text" className="form-control" value={inputValues.text} onChange={handleOnChange} cols="30" rows="10" />
-                            </div>
-                            <button className="btn btn-default">Submit</button>
-                        </form>
+            <section className="containerForm">
+                <h1>Formulaire</h1>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Name :</label>
+                        <input type="text" name="name" className="form-control" value={inputValues.name} onChange={handleOnChange} />
                     </div>
-                </div>
+                    <div>
+                        <label>First name :</label>
+                        <input type="text" name="firstName" className="form-control" value={inputValues.firstName} onChange={handleOnChange} />
+                    </div>
+                    <div>
+                        <label>Texte :</label>
+                        <textarea name="text" value={inputValues.text} onChange={handleOnChange} cols="30" rows="10" />
+                    </div>
+                    <button>Submit</button>
+                </form>
             </section>
         </div>
     );
