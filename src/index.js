@@ -34,6 +34,6 @@ ReactDOM.render(
     <Router>
         <Root />
     </Router>,
-    document.querySelector('body')
+    document.querySelector('#root')
 );
 registerServiceWorker();

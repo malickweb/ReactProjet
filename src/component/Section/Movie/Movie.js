@@ -40,6 +40,8 @@ const Movie = () => {
     );
 };
 
+export default Movie;
+
 // class Movie extends Component {
 //     state = {
 //         Movies
@@ -80,5 +82,3 @@ const Movie = () => {
 //         );
 //     }
 // }
-
-export default Movie;

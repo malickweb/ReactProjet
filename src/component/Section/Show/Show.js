@@ -29,6 +29,8 @@ const Show = () => {
     );
 };
 
+export default Show;
+
 // class Show extends Component {
 //     constructor(props) {
 //         super(props);
@@ -61,5 +63,3 @@ const Show = () => {
 //         );
 //     }
 // }
-
-export default Show;
