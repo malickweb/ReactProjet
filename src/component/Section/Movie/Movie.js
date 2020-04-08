@@ -1,49 +1,84 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React from 'react';
 
 //Menu
 import Menu from '../../Header/Menu';
+
+// Styles
+import './Movie.css';
+
 //Json Movie
 import Movies from '../../../json/Movies-json';
+const movies = Movies;
 
-class Movie extends Component {
-    state = {
-        Movies
-    };
-
-    render() {
-        console.log(Movies);
-
-        const movies = Movies;
-        const outputMovie = Object.keys(movies).map(function(movie, index) {
-            return (
-                <div key={index} className="col-xs-12 col-md-4 col-lg-3">
-                    <div className="card">
-                        <ul>
-                            <li>
-                                <h1>{movies[movie].title}</h1>
-                                <img src={movies[movie].imageUrl} alt={movies[movie].title} />
-                                <p>{movies[movie].synopsis}</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            );
-        });
-
+const OutputMovie = () => {
+    return Object.keys(movies).map(function(movie, index) {
         return (
-            <div>
-                <Menu />
-
-                <section>
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div>{outputMovie}</div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <li key={index}>
+                <h1>{movies[movie].title}</h1>
+                <a href={movies[movie].urlLinks}>
+                    <img src={movies[movie].imageUrl} alt={movies[movie].title} />
+                    <p>{movies[movie].synopsis}</p>
+                </a>
+            </li>
         );
-    }
-}
+    });
+};
+
+const Movie = () => {
+    return (
+        <div>
+            <Menu />
+            <section className="containerMovie">
+                <div>
+                    <ul>
+                        <OutputMovie />
+                    </ul>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+// class Movie extends Component {
+//     state = {
+//         Movies
+//     };
+
+//     render() {
+//         console.log(Movies);
+
+//         const movies = Movies;
+//         const outputMovie = Object.keys(movies).map(function(movie, index) {
+//             return (
+//                 <div key={index} className="container">
+//                     <div className="card">
+//                         <ul>
+//                             <li>
+//                                 <h1>{movies[movie].title}</h1>
+//                                 <img src={movies[movie].imageUrl} alt={movies[movie].title} />
+//                                 <p>{movies[movie].synopsis}</p>
+//                             </li>
+//                         </ul>
+//                     </div>
+//                 </div>
+//             );
+//         });
+
+//         return (
+//             <div>
+//                 <Menu />
+
+//                 <section>
+//                     <div className="container-fluid">
+//                         <div className="row">
+//                             <div>{outputMovie}</div>
+//                         </div>
+//                     </div>
+//                 </section>
+//             </div>
+//         );
+//     }
+// }
 
 export default Movie;
