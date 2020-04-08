@@ -9,8 +9,8 @@ import './Formulaire.css';
 
 const Formulaire = () => {
     const [inputValues, setInputValues] = useState({
-        name: '',
-        firstName: '',
+        name: 'Nom',
+        firstName: 'Prénom',
         text: 'Texte ici'
     });
 
@@ -36,15 +36,15 @@ const Formulaire = () => {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label>Name :</label>
-                        <input type="text" name="name" className="form-control" value={inputValues.name} onChange={handleOnChange} />
+                        <input type="text" name="name" placeholder={inputValues.name} className="form-control" onChange={handleOnChange} />
                     </div>
                     <div>
                         <label>First name :</label>
-                        <input type="text" name="firstName" className="form-control" value={inputValues.firstName} onChange={handleOnChange} />
+                        <input type="text" name="firstName" placeholder={inputValues.firstName} className="form-control" onChange={handleOnChange} />
                     </div>
                     <div>
                         <label>Texte :</label>
-                        <textarea name="text" value={inputValues.text} onChange={handleOnChange} cols="30" rows="10" />
+                        <textarea name="text" placeholder={inputValues.text} onChange={handleOnChange} cols="30" rows="10" />
                     </div>
                     <button>Submit</button>
                 </form>

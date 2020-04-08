@@ -19,5 +19,11 @@
 
 .containerForm form input,
 .containerForm form textarea {
-    width: calc(100% - 210px);
+    width: calc(100% - 230px);
+    padding: 5px 10px;
+}
+
+.containerForm form button {
+    display: block;
+    margin: 0 auto;
 }
