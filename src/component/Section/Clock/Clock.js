@@ -1,56 +1,85 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 //Menu
-import Menu from '../../Header/Menu'
+import Menu from '../../Header/Menu';
 
-class Clock extends Component {
+// Styles
+import './Clock.css';
 
-  constructor( props ) {
-    super( props );
-    this.state = {
-      date: new Date()
-    };
-  }
+const Clock = () => {
+    const [isTime, setIsTime] = useState(new Date().toLocaleTimeString());
+    const [isDate] = useState(new Date().toLocaleDateString());
 
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    )
-  }
-
-  componentWillUnmount() {
-    clearInterval( this.timerID );
-  }
-
-  tick() {
-    this.setState({
-      date: new Date()
+    useEffect(() => {
+        setTimeout(() => {
+            time();
+        }, 1000);
     });
-  }
-
-  render() {
-
-  function FormatDate (props) {
-    return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
-
-  }
+    const time = () => {
+        setIsTime(new Date().toLocaleTimeString());
+        console.log('isDate', isDate);
+    };
 
     return (
-      <div>
-        <Menu></Menu>
-        <section>
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12">
-                <FormatDate date={this.state.date} />
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        <div>
+            <Menu />
+            <section>
+                <p>Nous sommes le {isDate}</p>
+                <p>il est {isTime}</p>
+            </section>
+        </div>
     );
-  }
-}
+};
 
 export default Clock;
+
+// class Clock extends Component {
+
+//   constructor( props ) {
+//     super( props );
+//     this.state = {
+//       date: new Date()
+//     };
+//   }
+
+//   componentDidMount() {
+//     this.timerID = setInterval(
+//       () => this.tick(),
+//       1000
+//     )
+//   }
+
+//   componentWillUnmount() {
+//     clearInterval( this.timerID );
+//   }
+
+//   tick() {
+//     this.setState({
+//       date: new Date()
+//     });
+//   }
+
+//   render() {
+
+//   function FormatDate (props) {
+//     return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
+
+//   }
+
+//     return (
+//       <div>
+//         <Menu></Menu>
+//         <section>
+//           <div className="container">
+//             <div className="row">
+//               <div className="col-xs-12">
+//                 <FormatDate date={this.state.date} />
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//       </div>
+//     );
+//   }
+// }
