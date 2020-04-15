@@ -10,6 +10,7 @@ import './Clock.css';
 const Reload = () => {
     const [isTime, setIsTime] = useState(new Date().toLocaleTimeString());
     const [isDate] = useState(new Date().toLocaleDateString());
+
     useEffect(() => {
         setTimeout(() => {
             time();
