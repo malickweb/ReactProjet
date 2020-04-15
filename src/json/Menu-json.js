@@ -16,7 +16,7 @@ module.exports = {
     },
     menu2: {
         isSousMenu: true,
-        anchorUrl: 'film',
+        anchorUrl: '/film',
         title: 'Films/Séries',
         sousMenus: [
             {
@@ -27,17 +27,17 @@ module.exports = {
     },
     menu3: {
         sousMenu: false,
-        anchorUrl: 'clock',
+        anchorUrl: '/clock',
         title: 'Horloge'
     },
     menu4: {
         sousMenu: false,
-        anchorUrl: 'formulaire',
+        anchorUrl: '/formulaire',
         title: 'Formulaire'
     },
     menu5: {
         sousMenu: false,
-        anchorUrl: 'show',
+        anchorUrl: '/show',
         title: 'Show'
     }
 };

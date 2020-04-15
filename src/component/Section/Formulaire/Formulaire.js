@@ -35,11 +35,11 @@ const Formulaire = () => {
                 <h1>Formulaire</h1>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label>Name :</label>
+                        <label>Nom :</label>
                         <input type="text" name="name" placeholder={inputValues.name} className="form-control" onChange={handleOnChange} />
                     </div>
                     <div>
-                        <label>First name :</label>
+                        <label>Prénom :</label>
                         <input type="text" name="firstName" placeholder={inputValues.firstName} className="form-control" onChange={handleOnChange} />
                     </div>
                     <div>

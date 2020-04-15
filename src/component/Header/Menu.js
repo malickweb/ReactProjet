@@ -8,11 +8,12 @@ import './Menu.css';
 import menus from '../../json/Menu-json';
 
 const SubMenu = ({ handleClick }) => {
+    console.log('dom', window.location.pathname);
     return Object.keys(menus).map((section, index) => {
         if (menus[section].isSousMenu) {
             const sousMenu = menus[section].sousMenus.map((e, i) => {
                 return (
-                    <li key={i}>
+                    <li key={i} className={window.location.pathname === e.anchorUrl ? 'actif' : ''}>
                         <a href={e.anchorUrl} onClick={handleClick}>
                             {e.titre}
                         </a>
@@ -20,7 +21,7 @@ const SubMenu = ({ handleClick }) => {
                 );
             });
             return (
-                <li key={index}>
+                <li key={index} className={window.location.pathname === menus[section].anchorUrl ? 'actif' : ''}>
                     <a href={menus[section].anchorUrl} onClick={handleClick}>
                         {menus[section].title}
                     </a>
@@ -29,7 +30,7 @@ const SubMenu = ({ handleClick }) => {
             );
         } else {
             return (
-                <li key={index}>
+                <li key={index} className={window.location.pathname === menus[section].anchorUrl ? 'actif' : ''}>
                     <a href={menus[section].anchorUrl} onClick={handleClick}>
                         {menus[section].title}
                     </a>

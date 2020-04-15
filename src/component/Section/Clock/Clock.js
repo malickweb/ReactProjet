@@ -7,10 +7,9 @@ import Menu from '../../Header/Menu';
 // Styles
 import './Clock.css';
 
-const Clock = () => {
+const Reload = () => {
     const [isTime, setIsTime] = useState(new Date().toLocaleTimeString());
     const [isDate] = useState(new Date().toLocaleDateString());
-
     useEffect(() => {
         setTimeout(() => {
             time();
@@ -20,14 +19,19 @@ const Clock = () => {
         setIsTime(new Date().toLocaleTimeString());
         console.log('isDate', isDate);
     };
+    return (
+        <section className="containerClock">
+            <p>Nous sommes le {isDate}</p>
+            <p>il est {isTime}</p>
+        </section>
+    );
+};
 
+const Clock = () => {
     return (
         <div>
             <Menu />
-            <section>
-                <p>Nous sommes le {isDate}</p>
-                <p>il est {isTime}</p>
-            </section>
+            <Reload />
         </div>
     );
 };
