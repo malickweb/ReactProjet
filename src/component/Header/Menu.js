@@ -44,7 +44,7 @@ const Menu = () => {
     const [isCurrentPage, setIsCurrentPage] = useState(window.location.pathname);
 
     const onClickfoo = e => {
-        //e.preventDefault();
+        e.preventDefault();
         setIsToggleOn(false);
         setIsCurrentPage(e.target.pathname);
         console.log('isCurrentPage', isCurrentPage);

@@ -15,8 +15,6 @@ import Show from './component/Section/Show/Show';
 import registerServiceWorker from './registerServiceWorker';
 
 //Style
-// import './assets/bootstrap/bootstrap.css';
-// import './index.scss';
 import './index.css';
 
 const Root = () => (
