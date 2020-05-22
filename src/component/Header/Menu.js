@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 //Styles
 import './Menu.css';
 
@@ -13,26 +13,32 @@ const SubMenu = ({ handleClick }) => {
             const sousMenu = menus[section].sousMenus.map((e, i) => {
                 return (
                     <li key={i} className={window.location.pathname === e.anchorUrl ? 'actif' : ''}>
-                        <a href={e.anchorUrl} onClick={handleClick}>
+                        {/* <a href={e.anchorUrl} onClick={handleClick}> */}
+                        <Link to={e.anchorUrl} onClick={handleClick}>
                             {e.titre}
-                        </a>
+                        </Link>
+                        {/* </a> */}
                     </li>
                 );
             });
             return (
                 <li key={index} className={window.location.pathname === menus[section].anchorUrl ? 'actif' : ''}>
-                    <a href={menus[section].anchorUrl} onClick={handleClick}>
+                    {/* <a href={menus[section].anchorUrl} onClick={handleClick}> */}
+                    <Link to={menus[section].anchorUrl} onClick={handleClick}>
                         {menus[section].title}
-                    </a>
+                    </Link>
+                    {/* </a> */}
                     <ul>{sousMenu}</ul>
                 </li>
             );
         } else {
             return (
                 <li key={index} className={window.location.pathname === menus[section].anchorUrl ? 'actif' : ''}>
-                    <a href={menus[section].anchorUrl} onClick={handleClick}>
+                    {/* <a href={menus[section].anchorUrl} onClick={handleClick}> */}
+                    <Link to={menus[section].anchorUrl} onClick={handleClick}>
                         {menus[section].title}
-                    </a>
+                    </Link>
+                    {/* </a> */}
                 </li>
             );
         }
@@ -44,7 +50,6 @@ const Menu = () => {
     const [isCurrentPage, setIsCurrentPage] = useState(window.location.pathname);
 
     const onClickfoo = e => {
-        e.preventDefault();
         setIsToggleOn(false);
         setIsCurrentPage(e.target.pathname);
         console.log('isCurrentPage', isCurrentPage);

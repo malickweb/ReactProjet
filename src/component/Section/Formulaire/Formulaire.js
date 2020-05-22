@@ -1,8 +1,4 @@
-// import React, { Component } from 'react';
 import React, { useState } from 'react';
-
-//Menu
-import Menu from '../../Header/Menu';
 
 // Styles
 import './Formulaire.css';
@@ -29,8 +25,6 @@ const Formulaire = () => {
 
     return (
         <div>
-            <Menu />
-
             <section className="containerForm">
                 <h1>Formulaire</h1>
                 <form onSubmit={handleSubmit}>

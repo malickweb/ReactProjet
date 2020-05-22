@@ -1,8 +1,4 @@
-// import React, { Component } from 'react';
 import React, { useState, useEffect } from 'react';
-
-//Menu
-import Menu from '../../Header/Menu';
 
 // Styles
 import './Clock.css';
@@ -31,7 +27,6 @@ const Reload = () => {
 const Clock = () => {
     return (
         <div>
-            <Menu />
             <Reload />
         </div>
     );

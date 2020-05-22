@@ -1,8 +1,4 @@
-// import React, { Component } from 'react';
 import React, { useState } from 'react';
-
-// Menu
-import Menu from '../../Header/Menu';
 
 // Styles
 import './Show.css';
@@ -17,7 +13,6 @@ const Show = () => {
 
     return (
         <div>
-            <Menu />
             <section className="containerShow">
                 <button onClick={handleClick}>{isToggleOn ? 'ON' : 'OFF'}</button>
                 <p className={isToggleOn ? 'show' : 'hide'}>

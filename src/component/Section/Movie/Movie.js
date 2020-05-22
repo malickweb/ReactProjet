@@ -1,9 +1,6 @@
 // import React, { Component } from 'react';
 import React from 'react';
 
-//Menu
-import Menu from '../../Header/Menu';
-
 // Styles
 import './Movie.css';
 
@@ -28,7 +25,6 @@ const OutputMovie = () => {
 const Movie = () => {
     return (
         <div>
-            <Menu />
             <section className="containerMovie">
                 <div>
                     <ul>
