@@ -21,7 +21,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Component
 import Menu from './component/Header/Menu';
-import Welcome from './Welcome';
+import Welcome from './component/Welcome';
 import Movie from './component/Section/Movie/Movie';
 import Clock from './component/Section/Clock/Clock';
 import Formulaire from './component/Section/Formulaire/Formulaire';
