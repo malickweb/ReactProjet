@@ -1,0 +1,35 @@
+.containerMovie {
+    padding: 10px 15px;
+}
+
+.containerMovie ul {
+    margin: 0;
+    padding: 0;
+}
+
+.containerMovie ul li {
+    display: inline-block;
+    position: relative;
+    padding: 10px 20px;
+    margin: 25px 0 0 0;
+}
+
+.containerMovie ul li img {
+    width: 100%;
+    max-width: 250px;
+}
+
+.containerMovie ul li p {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 10px 20px;
+}
+
+.containerMovie ul li:hover p {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #000;
+    background-color: #e3e3e3;
+}
