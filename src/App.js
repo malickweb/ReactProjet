@@ -1,26 +1,8 @@
-//import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//     return (
-//         <div className="App">
-//             <header className="App-header">
-//                 <img src={logo} className="App-logo" alt="logo" />
-//                 <p>
-//                     Edit <code>src/App.js</code> and save to reload.
-//                 </p>
-//             </header>
-//         </div>
-//     );
-// }
-
-// export default App;
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Component
-import Menu from './component/Header/Menu';
+import Menu from './component/Header/Menu/Menu';
 import Welcome from './component/Welcome';
 import Movie from './component/Section/Movie/Movie';
 import Clock from './component/Section/Clock/Clock';

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import styled from '@emotion/styled';
 
 // Styles
-import './Formulaire.css';
+//import './Formulaire.css';
 
 const Formulaire = () => {
     const [inputValues, setInputValues] = useState({
@@ -9,6 +10,34 @@ const Formulaire = () => {
         firstName: 'Prénom',
         text: 'Texte ici'
     });
+
+    const Form = styled.section`
+        max-width: 800px;
+        margin: 25px auto 0;
+        padding: 10px 15px;
+        h1 {
+            text-align: center;
+        }
+        form {
+            div {
+                margin: 10px 0;
+            }
+            label {
+                display: inline-block;
+                min-width: 200px;
+                vertical-align: top;
+            }
+            input,
+            textarea {
+                width: calc(100% - 230px);
+                padding: 5px 10px;
+            }
+            button {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    `;
 
     const handleOnChange = event => {
         const { name, value } = event.target;
@@ -25,7 +54,7 @@ const Formulaire = () => {
 
     return (
         <div>
-            <section className="containerForm">
+            <Form>
                 <h1>Formulaire</h1>
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -42,7 +71,7 @@ const Formulaire = () => {
                     </div>
                     <button>Submit</button>
                 </form>
-            </section>
+            </Form>
         </div>
     );
 };

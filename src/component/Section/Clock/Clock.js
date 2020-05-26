@@ -1,26 +1,37 @@
 import React, { useState, useEffect } from 'react';
-
-// Styles
-import './Clock.css';
+import styled from '@emotion/styled';
 
 const Reload = () => {
     const [isTime, setIsTime] = useState(new Date().toLocaleTimeString());
     const [isDate] = useState(new Date().toLocaleDateString());
 
+    const Section = styled.section`
+        width: 800px;
+        margin: 25px auto 0;
+        padding: 10px 15px;
+        p {
+            text-align: center;
+        }
+    `;
+
     useEffect(() => {
-        setTimeout(() => {
-            time();
-        }, 1000);
+        var timer = setInterval(() => time(), 1000);
+        return function cleanup() {
+            clearInterval(timer);
+        };
     });
+
     const time = () => {
         setIsTime(new Date().toLocaleTimeString());
-        console.log('isDate', isDate);
+        // console.log('isDate', isDate);
+        console.log('isTime', isTime);
     };
+
     return (
-        <section className="containerClock">
+        <Section>
             <p>Nous sommes le {isDate}</p>
             <p>il est {isTime}</p>
-        </section>
+        </Section>
     );
 };
 
