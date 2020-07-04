@@ -16,6 +16,7 @@ const SubMenu = () => {
     const Li = styled.li`
         position: relative;
         display: inline-block;
+        transition: all 0.3s linear;
         &.actif {
             background-color: #fff;
             a {
@@ -37,9 +38,11 @@ const SubMenu = () => {
             padding: 0;
             li {
                 display: none;
+                transition: all 0.3s linear;
                 &:hover {
                     color: #000;
                     background-color: #fff;
+                    transition: all 0.3s linear;
                     li {
                         padding: 20px;
                     }
@@ -60,6 +63,7 @@ const SubMenu = () => {
                 display: block;
                 padding: 10px;
                 background-color: #000;
+                transition: all 0.3s linear;
                 a {
                     color: #fff;
                 }

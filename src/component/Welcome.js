@@ -1,10 +1,11 @@
 import { Component } from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import styled from '@emotion/styled';
 
 //Logo
 import logo from '../logo.svg';
+import Button from '../component/Buttons/Button';
+
 class Welcome extends Component {
     constructor(props) {
         super(props);
@@ -23,34 +24,27 @@ class Welcome extends Component {
 
         const isLoggedIn = this.state.isLoggedIn;
 
-        const Button = styled.button`
-            background-color: #000;
-            color: #fff;
-            border-radius: 5px;
-        `;
-
         return (
             <div>
                 <div>
                     <div>
-                        <div className="col-xs-12">
-                            <div className="text-center">
+                        <div>
+                            <div>
                                 <h1
                                     css={css`
                                         background-color: hotpink;
                                         text-align: center;
                                     `}
-                                    id="test"
                                 >
                                     Bienvenue sur une App React
                                 </h1>
-                                <Button> CLICK </Button>
-                                <img src={logo} className="App-logo text-center" alt="logo" />
+                                <Button />
+                                <img src={logo} alt="logo" />
                             </div>
                         </div>
                     </div>
                     <div className={isLoggedIn ? 'hidden' : 'inline-block'}>
-                        <ul className="test">{listTab}</ul>
+                        <ul>{listTab}</ul>
                         The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
                     </div>
                 </div>
