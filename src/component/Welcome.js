@@ -1,56 +1,49 @@
-import { Component } from 'react';
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+
+//Component
+import Button from '../component/Buttons/Button';
+import Survey from '../component/Survey/Survey';
 
 //Logo
 import logo from '../logo.svg';
-import Button from '../component/Buttons/Button';
 
-class Welcome extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoggedIn: true
-        };
-    }
+import styled from '@emotion/styled';
 
-    render() {
-        function Welcome(props) {
-            return <li>Hello, {props.name}</li>;
-        }
-        const tabs = ['moi', 'moi1', 'moi2'];
+const Welcome = () => {
+    const [isLoggedIn, setLogged] = useState(false);
 
-        const listTab = tabs.map((tab, index) => <Welcome key={index} name={tab} />);
+    const handleClick = () => {
+        console.log('click');
+        setLogged(!isLoggedIn);
+    };
 
-        const isLoggedIn = this.state.isLoggedIn;
+    const CONTAINER = styled.div`
+        width: 980px;
+        margin: 0 auto;
+        text-align: center;
+    `;
+    const CONTAINER_IMAGE = styled.div`
+        width: 500px;
+        margin: 0 auto;
+    `;
 
-        return (
+    return (
+        <CONTAINER>
             <div>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <h1
-                                    css={css`
-                                        background-color: hotpink;
-                                        text-align: center;
-                                    `}
-                                >
-                                    Bienvenue sur une App React
-                                </h1>
-                                <Button />
-                                <img src={logo} alt="logo" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className={isLoggedIn ? 'hidden' : 'inline-block'}>
-                        <ul>{listTab}</ul>
-                        The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
-                    </div>
-                </div>
+                <h1>Bienvenue sur une App React</h1>
+                <CONTAINER_IMAGE>
+                    <img src={logo} alt="logo" />
+                </CONTAINER_IMAGE>
             </div>
-        );
-    }
-}
+            <div className={isLoggedIn ? 'hidden' : 'inline-block'}>
+                The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
+                {isLoggedIn ? <Redirect to="/film" /> : console.log('ijio')}
+            </div>
+            <Button handleClick={handleClick} text="Button" />
+            <Survey />
+        </CONTAINER>
+    );
+};
 
 export default Welcome;
