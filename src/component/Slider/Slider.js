@@ -26,17 +26,17 @@ const SliderCSS = css`
 
 const Btn = css`
     position: absolute;
-    height: 150px;
-    width: 50px;
+    height: 50px;
+    width: 150px;
     margin: 0 auto;
     z-index: 3;
 `;
 const BtnNext = css`
     position: absolute;
     top: 0;
-    left: 740px;
-    height: 150px;
-    width: 50px;
+    left: 665px;
+    height: 50px;
+    width: 150px;
     margin: 0 auto;
     z-index: 3;
 `;
