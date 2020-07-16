@@ -8,6 +8,7 @@ import Movie from './component/Section/Movie/Movie';
 import Clock from './component/Section/Clock/Clock';
 import Formulaire from './component/Section/Formulaire/Formulaire';
 import Show from './component/Section/Show/Show';
+import Slider from './component/Slider/Slider';
 
 class App extends Component {
     render() {
@@ -30,6 +31,10 @@ class App extends Component {
                         </Route>
                         <Route exact path="/">
                             <Welcome />
+                        </Route>
+
+                        <Route path="/Slider">
+                            <Slider />
                         </Route>
                     </Switch>
                 </div>

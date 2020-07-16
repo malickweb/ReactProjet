@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 
 //Component
 import Button from '../component/Buttons/Button';
-import Survey from '../component/Survey/Survey';
 
 //Logo
 import logo from '../logo.svg';
@@ -38,10 +37,10 @@ const Welcome = () => {
             </div>
             <div className={isLoggedIn ? 'hidden' : 'inline-block'}>
                 The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
-                {isLoggedIn ? <Redirect to="/film" /> : console.log('ijio')}
+                {isLoggedIn ? <Redirect to="/Slider" /> : console.log('ijio')}
             </div>
+
             <Button handleClick={handleClick} text="Button" />
-            <Survey />
         </CONTAINER>
     );
 };
