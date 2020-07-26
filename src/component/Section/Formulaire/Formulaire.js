@@ -7,16 +7,36 @@ import Inputs from '../../Inputs/Inputs';
 
 const Formulaire = () => {
     const [inputValues, setInputValues] = useState({
-        name: '',
-        firstName: '',
-        state: ''
+        name: {
+            text: 'Nom',
+            value: '',
+            state: ''
+        },
+        firstName: {
+            text: 'Prenom',
+            value: '',
+            state: ''
+        }
     });
 
     const handleOnChange = event => {
         const { name, value } = event.target;
-        value.match(/aaaaa/g) ? (inputValues.state = true) : (inputValues.state = false);
-        setInputValues({ ...inputValues, [name]: value });
+        const valid = validateValue(value);
+        console.log('[name]', [name]);
+        setInputValues({
+            ...inputValues,
+            [name]: {
+                ...inputValues.name,
+                value: value,
+                state: valid
+            }
+        });
+        // console.log('A ===> ', valid);
         console.log('EEE ===>', inputValues);
+    };
+
+    const validateValue = value => {
+        return /azerty/.test(value);
     };
 
     const handleSubmit = e => {
@@ -35,8 +55,8 @@ const Formulaire = () => {
             <h1>Formulaire</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <Inputs type="text" state={inputValues.state} text="Nom :" name="name" handleOnChange={handleOnChange} />
-                    <Inputs type="text" text="firstName :" name="firstName" handleOnChange={handleOnChange} />
+                    <Inputs type="text" state={inputValues.name.state} text="Nom :" name="name" handleOnChange={handleOnChange} />
+                    <Inputs type="text" state={inputValues.firstName.state} text="firstName :" name="firstName" handleOnChange={handleOnChange} />
                 </div>
                 <button>Submit</button>
             </form>
