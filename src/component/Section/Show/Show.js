@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import Button from '../../Buttons/Button';
 const Show = () => {
-    const [isHandleClick, setIsHandleon] = useState(false);
+    const [isHandleClick, setIsHandleOn] = useState(false);
     const [isToggleOn, setIsToggleOn] = useState(false);
     const Section = styled.section`
         max-width: 800px;
@@ -17,7 +17,7 @@ const Show = () => {
         }
     `;
     const handleClick = () => {
-        setIsHandleon(!isHandleClick);
+        setIsHandleOn(!isHandleClick);
         setIsToggleOn(!isToggleOn);
     };
 

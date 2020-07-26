@@ -1,77 +1,45 @@
-import React, { useState } from 'react';
-import styled from '@emotion/styled';
+import { useState } from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 
-// Styles
-//import './Formulaire.css';
+// COMPONENT
+import Inputs from '../../Inputs/Inputs';
 
 const Formulaire = () => {
     const [inputValues, setInputValues] = useState({
-        name: 'Nom',
-        firstName: 'Prénom',
-        text: 'Texte ici'
+        name: '',
+        firstName: '',
+        state: ''
     });
-
-    const Form = styled.section`
-        max-width: 800px;
-        margin: 25px auto 0;
-        padding: 10px 15px;
-        h1 {
-            text-align: center;
-        }
-        form {
-            div {
-                margin: 10px 0;
-            }
-            label {
-                display: inline-block;
-                min-width: 200px;
-                vertical-align: top;
-            }
-            input,
-            textarea {
-                width: calc(100% - 230px);
-                padding: 5px 10px;
-            }
-            button {
-                display: block;
-                margin: 0 auto;
-            }
-        }
-    `;
 
     const handleOnChange = event => {
         const { name, value } = event.target;
+        value.match(/aaaaa/g) ? (inputValues.state = true) : (inputValues.state = false);
         setInputValues({ ...inputValues, [name]: value });
         console.log('EEE ===>', inputValues);
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('submit name ===>', inputValues.name);
-        console.log('submit firstName ===>', inputValues.firstName);
-        console.log('submit text ===>', inputValues.text);
+        console.log('submit inputValues ===>', inputValues);
     };
 
     return (
-        <div>
-            <Form>
-                <h1>Formulaire</h1>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Nom :</label>
-                        <input type="text" name="name" placeholder={inputValues.name} className="form-control" onChange={handleOnChange} />
-                    </div>
-                    <div>
-                        <label>Prénom :</label>
-                        <input type="text" name="firstName" placeholder={inputValues.firstName} className="form-control" onChange={handleOnChange} />
-                    </div>
-                    <div>
-                        <label>Texte :</label>
-                        <textarea name="text" placeholder={inputValues.text} onChange={handleOnChange} cols="30" rows="10" />
-                    </div>
-                    <button>Submit</button>
-                </form>
-            </Form>
+        <div
+            css={css`
+                width: 980px;
+                margin: 0 auto;
+                text-align: center;
+            `}
+        >
+            <h1>Formulaire</h1>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <Inputs type="text" state={inputValues.state} text="Nom :" name="name" handleOnChange={handleOnChange} />
+                    <Inputs type="text" text="firstName :" name="firstName" handleOnChange={handleOnChange} />
+                </div>
+                <button>Submit</button>
+            </form>
         </div>
     );
 };
