@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const LABEL = styled.label`
+const DIV = styled.div`
     button {
         display: inline-block;
         padding: 5px 15px;
@@ -19,9 +19,9 @@ const LABEL = styled.label`
 
 const Button = props => {
     return (
-        <LABEL>
+        <DIV>
             <button onClick={props.handleClick}>{props.text}</button>
-        </LABEL>
+        </DIV>
     );
 };
 
